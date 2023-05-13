@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            color: white;
+            background-image: url("https://nxttour.in/tour/badrinath.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            backdrop-filter: blur(6px);
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .contrtr {
+            padding: 10px;
+        }
+
+        .row {
+            display: flex;
+        }
+
+        .colllum {
+            width: 100%;
+        }
+
+        .lgo {
+            text-align: center;
+            font-size: 5vw;
+            width: 100%;
+        }
+
+        .lgo span {
+            color: lightseagreen;
+        }
+
+        input[type=text],
+        input[type=number],
+        input[type=email],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            margin-top: 6px;
+            margin-bottom: 16px;
+            resize: vertical;
+        }
+
+        input[type=submit] {
+            background-color: black;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            cursor: pointer;
+            border-bottom: 1px solid aqua;
+        }
+
+        input::-webkit-outer-spin-button,
+        input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        /* Firefox */
+        input[type=number] {
+            -moz-appearance: textfield;
+        }
+
+        input[type=submit]:hover {
+            border-bottom: 1px solid aqua;
+            border-top: 1px solid aqua;
+        }
+
+        .snd {
+            display: none;
+        }
+
+        .row .colllum .contra {
+            width: 60%;
+            margin: auto;
+            background: #0505051f;
+        }
+
+        .conele {
+            display: flex;
+            padding: 20px;
+            margin: 20px;
+            font-size: 20px;
+            align-items: center;
+        }
+
+        .conele span {
+            font-size: 30px;
+            padding: 15px;
+            margin-right: 20px;
+            background: black;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .conele span:hover {
+            background: white;
+            color: black;
+        }
+
+        .conele p:hover {
+            color: black;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 900px) {
+            .row .colllum .contra {
+                width: 100%;
+            }
+
+            .conele p {
+                font-size: 20px;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+
+            .colllum,
+            input[type=submit] {
+                width: 100%;
+                margin-top: 0;
+            }
+
+            .conele {
+                display: none;
+            }
+
+            .row {
+                display: flex;
+                flex-direction: column;
+                align-content: space-between;
+                align-items: center;
+                justify-content: space-around;
+            }
+
+            body {
+                background-size: contain;
+            }
+        }
+
+        @media screen and (prefers-color-scheme: dark) {
+
+            body,
+            input {
+                color: #f1f1f1;
+            }
+
+            .contrtr {
+                background: #00000063;
+            }
+
+            input[type=text],
+            input[type=number],
+            input[type=email],
+            select,
+            textarea {
+                background: black;
+                color: white;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    {{>navbar}}
+     <div class="contrtr">
+        {{#if status}}
+            <h1>data is save {{status}}</h1>
+        {{/if}}
+        <div style="text-align:center;margin: 10px;">
+            <h2>Contact Us</h2>
+            <p>Feel free to contact us:</p>
+        </div>
+        <div class="row">
+            <div class="colllum">
+                <div class="lgo"> NXT<span>TOUR</span></div>
+                <div class="contra">
+                    <div class="conele">
+                        <span class="material-symbols-outlined">
+                            location_on
+                        </span>
+                        <p>Station Road, Ghaziabad <br> UttarPradesh, INDIA ,<br> 201001</p>
+                    </div>
+                    <div class="conele">
+                        <span class="material-symbols-outlined">
+                            phone_in_talk
+                        </span>
+                        <p> <a href="tel: +918860422993" style="color:lightseagreen"> +91 8860422993 </a> </p>
+                    </div>
+                    <div class="conele">
+                        <span class="material-symbols-outlined">
+                            mail
+                        </span>
+                        <p><a href="mailto:support@nxttour.in" style="color:lightseagreen">support@nxttour.in</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="colllum">
+                <form action="/contact" method="post">
+                    <label for="fname">Full Name</label>
+                    <input type="text" id="fname" name="name" placeholder="Your name.." required>
+                    <label for="lname">Phone No</label>
+                    <input type="number" id="phone" name="phone" placeholder="Your Phone Number.." required>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Your email.." required>
+                    <textarea id="subject" name="message" placeholder="Write something.." style="height:170px"
+                        required></textarea>
+                    <input type="submit" value="Submit" name="send">
+                </form>
+            </div>
+        </div>
+    </div>
+    {{>footer}}
+</body>
+
+</html>
